@@ -1,8 +1,12 @@
-
-set -e
+#!/bin/bash
+#set -e
 QUERY="$1"
 
 check_mac() {
+    if ! command -v sysctl >/dev/null 2>&1; then
+        echo "sysctl command not found. Cannot perform macOS checks."
+        exit 1
+    fi
     case "$1" in
       avx) sysctl -n machdep.cpu.features | grep -i avx >/dev/null;;
       avx2) sysctl -n machdep.cpu.features | grep -i avx2 >/dev/null;;
@@ -18,6 +22,7 @@ check_mac() {
 }
 
 check_linux() {
+  
     case "$1" in
       avx) grep avx /proc/cpuinfo >/dev/null;;
       avx2) grep avx2 /proc/cpuinfo >/dev/null;;

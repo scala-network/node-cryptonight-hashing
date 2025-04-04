@@ -7,7 +7,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/AdminXeq/node-cryptonight-hashing.git"
+        "url": "https://github.com/scala-network/node-cryptonight-hashing.git"
     },
     "dependencies": {
         "bindings": "*",
@@ -24,6 +24,7 @@
         "astrobwt",
         "KangarooTwelve",
         "monero",
-        "kawpow"
-    ]
+        "kawpow",
+        "scala",
+        "panthera"
 }
